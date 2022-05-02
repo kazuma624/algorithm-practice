@@ -18,5 +18,5 @@ for i in range(1, N):
         j -= 1
 
     A[j + 1] = v
-    print(A)
+    print(' '.join(map(lambda x: str(x), A)))
 
