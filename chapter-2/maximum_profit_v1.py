@@ -8,7 +8,7 @@ R_j - R_i (j < i) の最大値を求める
 1 <= R_t <= 10^9
 """
 
-args = list(map(lambda x: int(x), iter(input, '')))
+args = list(map(int, iter(input, '')))
 n = args[0]
 R = args[1:]
 

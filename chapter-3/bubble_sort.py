@@ -16,7 +16,7 @@ def bubble_sort(A, N):
                 cnt += 1 # 入れ替えたのでカウントアップ
         i += 1
 
-    print(' '.join(map(lambda x: str(x), A)))
+    print(' '.join(map(str, A)))
     print(cnt)
 
 

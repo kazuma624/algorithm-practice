@@ -12,7 +12,7 @@ def selection_sort(A, N):
         A[i], A[minj] = A[minj], A[i]
         cnt += 1
 
-    print(' '.join(map(lambda x: str(x), A)))
+    print(' '.join(map(str, A)))
     print(cnt)
 
 
