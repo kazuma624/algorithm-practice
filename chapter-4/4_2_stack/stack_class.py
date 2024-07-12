@@ -29,11 +29,11 @@ class stack:
         """
         return self.top >= self.max - 1
 
-    def push(self, x: str):
+    def push(self, x: int):
         """スタックがいっぱいでない時、スタックにアイテムを一つ追加する
 
         Args:
-            x (str): スタックに追加したいアイテム
+            x (int): スタックに追加したいアイテム
 
         Raises:
             OverflowError: スタックがすでにいっぱいの場合
@@ -44,14 +44,14 @@ class stack:
         self.top += 1
         self.stack[self.top] = x
 
-    def pop(self) -> str:
+    def pop(self) -> int:
         """スタックが空でないとき、スタックからアイテムを一つ取り出す
 
         Raises:
             UnderFlowException: スタックが空の場合
 
         Returns:
-            str: スタックから取り出されたアイテム
+            int: スタックから取り出されたアイテム
         """
         if self.is_empty():
             raise UnderFlowException("アンダーフロー")
@@ -70,7 +70,7 @@ class UnderFlowException(IndexError):
     pass
 
 
-def main(A: str) -> str:
+def main(A: str) -> int:
     """逆ポーランド記法で指定された文字列の計算結果を、スタックを用いて算出する"""
     s = stack()
     for a in A.split(" "):
@@ -78,7 +78,7 @@ def main(A: str) -> str:
             case "+":
                 y, x = s.pop(), s.pop()
                 s.push(x + y)
-            case  "-":
+            case "-":
                 y, x = s.pop(), s.pop()
                 s.push(x - y)
             case "*":
@@ -87,7 +87,6 @@ def main(A: str) -> str:
             case _:
                 s.push(int(a))
 
-    print(s.stack)
     return s.pop()
 
 
