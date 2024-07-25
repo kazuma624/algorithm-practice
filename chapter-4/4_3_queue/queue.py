@@ -108,10 +108,10 @@ if __name__ == "__main__":
     elaps = 0
     args = input("キューの個数 最大プロセス時間")
     arg_list = args.split(" ")
-    n = int(arg_list[0])
-    q = int(arg_list[1])
+    queue_count = int(arg_list[0])
+    max_process_time = int(arg_list[1])
     # 全てのプロセスをキューに順番に追加する
-    for i in range(int(n)):
+    for i in range(queue_count):
         args = input("キューの名前 処理時間\n")
         arg_list = args.split(" ")
         Q[i+1] = P(name=arg_list[0], t=int(arg_list[1]))
@@ -119,14 +119,14 @@ if __name__ == "__main__":
     global head
     head = 1
     global tail
-    tail = n + 1
+    tail = queue_count + 1
 
     # シミュレーション
     while head != tail:
         # check(Q)
         u = dequeue()
-        # q または u.t の時間だけ処理を行う（短い方）
-        c = min(q, u.t)
+        # max_process_time または u.t の時間だけ処理を行う（短い方）
+        c = min(max_process_time, u.t)
         # 残りの必要時間を計算
         u.t -= c
         # 処理が完了していなければキューに追加
