@@ -53,7 +53,7 @@ class P:
         return f"name: {self.name}, t: {self.t}"
 
 
-Q: list[P] = [P for _ in range(LEN)]
+Q = [None] * LEN
 
 
 def enqueue(x: P):
